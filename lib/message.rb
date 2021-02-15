@@ -36,7 +36,7 @@ class Message
 
   def user_guess
     p "#{@codebreaker.guess.join} has #{@turn.num_correct_colors} of the correct elements with #{@turn.num_correct_positions} in the correct positions."
-      # p "You've taken #{num of guesses} guess(es)."
+    p "You've taken #{@turn.number_of_guesses} guess(es)."
   end
 
   def cheat
@@ -48,4 +48,10 @@ class Message
     p "It's up to you to guess what order they are in."
     p "There can be multiples of the same color."
   end
+
+  def end_game
+    p "Congratulations! You guessed the sequence #{@codebreaker.guess.join}"
+    p "Do you want to (p)lay again or (q)uit?"
+  end
+
 end

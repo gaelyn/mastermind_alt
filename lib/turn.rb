@@ -1,11 +1,16 @@
 class Turn
-  attr_reader :codemaker, :codebreaker
+  attr_reader :codemaker, :codebreaker, :number_of_guesses
 
   def initialize(codemaker, codebreaker)
     @codemaker = codemaker
     @codebreaker = codebreaker
     # @guess = nil
     # @winner = false
+    @number_of_guesses = 0
+  end
+
+  def add_guess
+    @number_of_guesses += 1
   end
 
   def find_code
