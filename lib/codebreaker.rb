@@ -1,19 +1,26 @@
 class Codebreaker
-  attr_reader :codemaker, :guessed
+  attr_reader :codemaker, :guess
+
   def initialize(codemaker)
     @codemaker = codemaker
-    @guessed = guessed
   end
 
-  def guess(player_guess)
-    @guessed = player_guess.upcase.split("")
-  end
-
-  def correct_guess?
-    @guessed == codemaker.code
-  end
-
-  def num_correct_colors
-    4 - (@guessed - codemaker.code).count
+  def guess_code(player_input)
+    @guess = player_input.upcase.split("")
   end
 end
+
+
+
+
+
+# class Codebreaker
+#   attr_reader :codemaker, :guess
+#   def initialize(codemaker)
+#     @codemaker = codemaker
+#   end
+#
+#   def guess_code(player_input)
+#     @guess = player_input.upcase.split("")
+#   end
+# end

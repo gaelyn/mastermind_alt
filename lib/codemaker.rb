@@ -1,5 +1,7 @@
 class Codemaker
-  attr_reader :colors, :code
+  attr_reader :colors
+  attr_accessor :code
+
   def initialize
     @colors = ["R", "G", "B", "Y"]
     @code = []
@@ -7,12 +9,8 @@ class Codemaker
 
   def randomize
     4.times do
-      @code << colors.sample
+      code << colors.sample
     end
-    @code.join
-    # will have to clear code array after turn or make sure
-    # method does not get called more than once
+    # code.join
   end
-
-  # def indclude?
 end

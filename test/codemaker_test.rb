@@ -2,20 +2,66 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/codemaker'
 
-class CodemakerTest < Minitest::Test
-  def test_it_exists
-    codemaker = Codemaker.new
-    assert_instance_of Codemaker, codemaker
+class CodeMakerTest < Minitest::Test
+  def setup
+    @codemaker = Codemaker.new
   end
 
-  def test_it_starts_with_a_color_array
-    codemaker = Codemaker.new
-    codemaker.colors
+  def test_it_exists
+    assert_instance_of Codemaker, @codemaker
+  end
+
+  def test_it_starts_with_colors_and_empty_code_array
+    assert_equal @codemaker.colors, ["R", "G", "B", "Y"]
+    assert_equal @codemaker.code, []
   end
 
   def test_randomizing_code
-    codemaker = Codemaker.new
-    assert_equal false, codemaker.randomize == codemaker.colors
-    # not sure how to test this. It will come back true sometimes.
+    @codemaker.randomize
+    assert_equal false, @codemaker.code == @codemaker.colors
+
+    @codemaker.code.clear
+    @codemaker.randomize
+    assert_equal false, @codemaker.code == @codemaker.colors
+
+    @codemaker.code.clear
+    @codemaker.randomize
+    assert_equal false, @codemaker.code == @codemaker.colors
   end
 end
+
+
+
+# class CodemakerTest < Minitest::Test
+#   def setup
+#     @codemaker = Codemaker.new
+#   end
+#
+#   def test_it_exists
+#     assert_instance_of Codemaker, @codemaker
+#   end
+#
+#   def test_it_starts_with_colors_and_empty_code_array
+#     assert_equal @codemaker.colors, ["R", "G", "B", "Y"]
+#     assert_equal @codemaker.code, []
+#   end
+#
+#   def test_randomizing_code
+#     @codemaker.randomize
+#     assert_equal false, @codemaker.code == @codemaker.colors
+#
+#     @codemaker.code.clear
+#     @codemaker.randomize
+#     assert_equal false, @codemaker.code == @codemaker.colors
+#
+#     @codemaker.code.clear
+#     @codemaker.randomize
+#     assert_equal false, @codemaker.code == @codemaker.colors
+#
+#     @codemaker.code.clear
+#     @codemaker.code = ["R", "G", "B", "Y"]
+#     assert_equal true, @codemaker.code == @codemaker.colors
+#
+#
+#   end
+# end
