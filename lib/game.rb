@@ -15,7 +15,7 @@ class Game
   end
 
   def turn_loop
-    until (@turn.has_won?) || (@turn.number_of_guesses > 10)
+    until (@turn.has_won?)
       @turn.add_guess
       @message.user_guess
       @player_input = gets.chomp

@@ -69,7 +69,7 @@ end
 #   def initialize(codemaker, codebreaker)
 #     @codemaker = codemaker
 #     @codebreaker = codebreaker
-#     # @message = message
+#     @message = Message.new
 #   end
 #
 #   def correct_guess?
