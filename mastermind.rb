@@ -10,18 +10,5 @@ turn = Turn.new(codemaker, codebreaker)
 message = Message.new(codebreaker, turn)
 game = Game.new(codemaker,codebreaker,turn,message)
 
-message.welcome_message
-message.user_input_prompt
-@user_input = gets.chomp
 
-if @user_input == "p"
-  game.start_game
-  game.cheat
-  game.turn_loop
-  # game.end_game
-  # @user_input = gets.chomp
-elsif @user_input == "i"
-  message.instructions
-elsif @user_input == "q"
-  message.quit
-end
+game.start_game

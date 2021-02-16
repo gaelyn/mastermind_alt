@@ -34,10 +34,10 @@ class Message
     p "That input is too long, you must only choose four letters"
   end
 
-  def user_guess
-    p "#{@codebreaker.guess.join} has #{@turn.num_correct_colors} of the correct elements with #{@turn.num_correct_positions} in the correct positions."
-    p "You've taken #{@turn.number_of_guesses} guess(es)."
-  end
+  # def user_guess
+  #   p "#{@codebreaker.guess} has #{@turn.num_correct_colors} of the correct elements with #{@turn.num_correct_positions} in the correct positions."
+  #   p "You've taken #{@turn.number_of_guesses} guess(es)."
+  # end
 
   def cheat
     p @codemaker.code
