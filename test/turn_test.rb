@@ -43,6 +43,46 @@ class TurnTest < Minitest::Test
     assert_equal 3, @turn.num_correct_colors
   end
 
+  def test_num_correct_colors_returns_0
+    codemaker = Codemaker.new
+    codemaker.code = ["R", "G", "B", "Y"]
+    codebreaker = Codebreaker.new(codemaker)
+    turn = Turn.new(codemaker, codebreaker)
+    codebreaker.guess_code("zzzz")
+
+    assert_equal 0, turn.num_correct_colors
+  end
+
+  def test_num_correct_colors_returns_4
+    codemaker = Codemaker.new
+    codemaker.code = ["R", "G", "B", "Y"]
+    codebreaker = Codebreaker.new(codemaker)
+    turn = Turn.new(codemaker, codebreaker)
+    codebreaker.guess_code("ybgr")
+
+    assert_equal 4, turn.num_correct_colors
+  end
+
+  def test_num_correct_colors_returns_2
+    codemaker = Codemaker.new
+    codemaker.code = ["R", "G", "B", "Y"]
+    codebreaker = Codebreaker.new(codemaker)
+    turn = Turn.new(codemaker, codebreaker)
+    codebreaker.guess_code("rgrg")
+
+    assert_equal 2, turn.num_correct_colors
+  end
+
+  def test_num_correct_colors_returns_3
+    codemaker = Codemaker.new
+    codemaker.code = ["R", "G", "R", "G"]
+    codebreaker = Codebreaker.new(codemaker)
+    turn = Turn.new(codemaker, codebreaker)
+    codebreaker.guess_code("rrrg")
+
+    assert_equal 3, turn.num_correct_colors
+  end
+
   def test_it_can_evaluate_num_correct_positions
     @codebreaker.guess_code("yrbr")
 
